@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hot Beans Website Development</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+@import url("singlePageTemplate.css");
+</style>
+<link href="singlePageTemplate.css" rel="stylesheet" type="text/css">
+<link href="singlePageTemplate.css" rel="stylesheet" type="text/css">
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+	
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<script>
+
+			  // Original JavaScript code by Chirp Internet: www.chirpinternet.eu
+			  // Please acknowledge use of this code by including this header.
+
+			  var today = new Date();
+			  var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+
+			  var setCookie = function(name, value) {
+				document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+			  };
+
+			</script>
+			<script>
+
+			  var expired = new Date(today.getTime() - 24 * 3600 * 1000); // less 24 hours
+
+			  var deleteCookie = function(name) {
+				document.cookie=name + "=null; path=/; expires=" + expired.toGMTString();
+			  };
+
+			</script>
+			  <script>
+
+			  var storeValues = function(form) {
+				setCookie("MySelect", form.MySelect.value);
+				setCookie("FirstName", form.FirstName.value);
+				setCookie("FamilyName", form.FamilyName.value);
+				setCookie("Citizenship", form.Citizenship.value);
+				setCookie("DOB", form.DOB.value);
+				setCookie("Phone", form.Phone.value);
+				setCookie("Email", form.Email.value);
+				return true;
+			  };
+
+			</script>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Navigation -->
+  <header> <a href="index.html">
+    <h4 class="logo">&nbsp;HOME</h4>
+    </a>
+    <nav>
+      <ul>
+        <li> <a href="Team.html">TEAM</a></li>
+        <li><a href="Jobs.html">JOBS&nbsp;</a></li>
+        <li> <a href="Courses.html">COURSES&nbsp;</a></li>
+		  <li><a href="Apply.html">APPLY&nbsp;</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="intro">
+    <div class="column">
+      <div><div> 
+<p id="p1">Thu May 23 2024 15:01:56 GMT+0100 (British Summer Time)</p>
+<script>
+	var date = new Date();
+	document.getElementById("p1").innerHTML = date;
+</script></div></div>
+      <h1> &nbsp; &nbsp; &nbsp;APPLY</h1>
+    </div>
+    <div class="column">
+      
+      <p>Are you passionate about web design? Join our team and apply now for exciting opportunities to create stunning digital experiences!&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+		<!-- Original code from form taxi.
+            https://form.taxi/en/sample-forms/job-application-form -->
+      <div><form action="ThankYou.html" id="ft-form" method="POST" onSubmit="return storeValues(this);" accept-charset="UTF-8" enctype="multipart/form-data">
+  <fieldset>
+    <legend>Job</legend>
+	  <!-- All code used below for the drop down https://www.w3schools.com/js/tryit.asp?filename=tryjson_html_select -->
+    <label>
+      <select id="myselect" name="MySelect" onchange="change_myselect(this.value)" required>
+  <option value=""></option>
+  <option value="Software Developer">Software Developer</option>
+  <option value="IT Technician">IT Technician</option>
+  <option value="Web Designer">Web Designer</option>
+	<option value="Lead Designer">Lead Designer</option>
+</select>
+
+<script>
+function change_myselect(sel) {
+  const dbParam = JSON.stringify({table:sel,limit:20});
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    myObj = JSON.parse(this.responseText);
+    text = "<table border='1'>"
+    for (x in myObj) {
+      text += "<tr><td>" + myObj[x].name + "</td></tr>";
+    }
+    text += "</table>"    
+    document.getElementById("demo").innerHTML = text;
+  }
+  xmlhttp.open("POST", "json_demo_html_table.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("x=" + dbParam);
+}
+</script>
+	
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Personal data</legend>
+    <div class="two-cols">
+      <label>
+        First name *
+        <input type="text" name="FirstName" required>
+      </label>
+      <label>
+        Family name *
+        <input type="text" name="FamilyName" required>
+      </label>
+    </div>
+    <div class="two-cols">
+      <label>
+        Citizenship
+        <input type="text" name="Citizenship">
+      </label>
+      <label>
+        Date of birth
+        <input type="date" name="DOB">
+      </label>
+    </div>
+    <div class="two-cols">
+
+    </div>
+    <div class="two-cols">
+      <label>
+        Phone *
+        <input type="tel" name="Phone" required>
+      </label>
+      <label>
+        Email address *
+        <input type="email" name="Email" required>
+      </label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Application documents</legend>
+    <input type="hidden" name="MAX_FILE_SIZE" value="10485760">
+    <div class="two-cols">
+      <label>
+        Application letter
+        <input type="file" name="Application letter" accept=".doc,.docx,.pdf">
+      </label>
+      <label>
+        Curriculum vitae
+        <input type="file" name="Curriculum vitae" accept=".doc,.docx,.pdf">
+      </label>
+    </div>
+    <p>Possible file types: DOC, PDF. Maximum file size: 10 MB.</p>
+  </fieldset>
+  <fieldset>
+    <div>
+
+    </div>
+  </fieldset>
+  <div class="btns">
+    <input type="text" name="_gotcha" value="" style="display:none;">
+    <input type="submit" value="Submit application">
+  </div>
+</form>
+		</div>
+    </div>
+  </section>
+  <!-- Stats Gallery Section -->
+
+  <!-- Footer Section -->
+
+</div>
+<!-- Main Container Ends -->
+<section class="footer_banner" id="contact">
+  <h2 class="hidden">Footer Banner Section </h2>
+
+<a href="https://en-gb.facebook.com" class="fa fa-facebook"></a> <a href="https://x.com/home?lang=en" class="fa fa-twitter"></a> <a href="https://uk.linkedin.com" class="fa fa-linkedin"></a> <a href="https://www.instagram.com" class="fa fa-instagram"></a></section>
+	
+	<script type="text/javascript">
+
+			  // this must appear AFTER the form
+			  // check each cookie, set form value and delete cookie
+				if(MySelect = getCookie("MySelect")) document.myForm.MySelect.value = MySelect;
+				if(FirstName = getCookie("FirstName")) document.myForm.FirstName.value = FirstName;
+				if(FamilyName = getCookie("FamilyName")) document.myForm.FamilyName.value = FamilyName;
+				if(Citizenship = getCookie("Citizenship")) document.myForm.Citizenship.value = Citizenship;
+				if(DOB = getCookie("DOB")) document.myForm.DOB.value = DOB;
+		        if(Phone = getCookie("Phone")) document.myForm.Phone.value = Phone;
+			    if(Email = getCookie("Email")) document.myForm.Email.value = Email;
+		
+				var clearCookies = function() {
+				deleteCookie("MySelect");
+				deleteCookie("FirstName");
+				deleteCookie("FamilyName");
+				deleteCookie("Citizenship");
+				deleteCookie("DOB");
+				deleteCookie("Phone");
+				deleteCookie("Email");
+				alert('Your cookies have been deleted!');
+			  	};
+
+			</script>
+</body>
+	
+</html>
